@@ -50,6 +50,31 @@ const resolvers = {
         token,
         user,
       }
+    },
+    addProject: async (parent, { name, description }, ctx, info) => {
+      if (!ctx.user) {
+        throw new Error('Not Authenticated')
+      }
+      // console.log(ctx.user);
+      const project = await ctx.prisma.createProject({
+        name,
+        description,
+        author: {
+          connect: { id: ctx.user.id, username: ctx.user.username },
+        },
+        // users: {
+          // create: [
+            // {
+                // username: ctx.user.name
+            // }
+          // ]
+        // }
+        // users: { set: [ctx.user] }
+        // cart: ctx.user
+        // users: {connect: {id: ctx.user.id}}
+      })
+      console.log(project);
+      return project
     }
   }
 }

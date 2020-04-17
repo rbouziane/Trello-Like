@@ -12,14 +12,22 @@ const typeDefs = gql`
     username: String!
   }
 
-  type Mutation {
-    register(username: String!, password: String!): User!
-    login(username: String!, password: String!): LoginResponse!
-  }
-
   type LoginResponse {
     token: String
     user: User
+  }
+
+  type Project {
+    id: ID!
+    name: String!
+    description: String!
+    author: User
+  }
+
+  type Mutation {
+    register(username: String!, password: String!): User!
+    login(username: String!, password: String!): LoginResponse!
+    addProject(name: String!, description: String!): Project!
   }
 
 `;

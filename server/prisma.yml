@@ -10,4 +10,3 @@ generate:
 hooks:
   post-deploy:
     - prisma generate
-

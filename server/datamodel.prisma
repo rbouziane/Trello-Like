@@ -1,5 +1,14 @@
+scalar JSON
+
 type User {
   id: ID! @id
   username: String! @unique
   password: String!
+}
+
+type Project {
+  id: ID! @id
+  name: String! @unique
+  description: String!
+  author: User
 }
