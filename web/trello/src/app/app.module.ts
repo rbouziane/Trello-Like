@@ -13,12 +13,22 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { BoardComponent } from './board/board.component';
+import {RouterModule, Routes} from "@angular/router"
+
+const appRoutes: Routes = [
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'board', component: BoardComponent},
+  {path: '', component: LoginComponent}
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    BoardComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +41,8 @@ import { RegisterComponent } from './register/register.component';
     MatFormFieldModule,
     MatInputModule,
     MatTabsModule,
-    MatInputModule
+    MatInputModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
