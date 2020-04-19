@@ -1,0 +1,23 @@
+<div class="div-full"  fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="login-card" fxLayout="column" fxLayoutAlign="space-around center">
+    <h1 class="titre">S'inscrire à Trello</h1>
+    <form class="div-full" fxLayout="row" fxLayoutAlign="space-around center">
+      <mat-form-field color="warn">
+          <input matInput placeholder="E-mail">
+      </mat-form-field>
+      <mat-form-field color="warn">
+          <input matInput placeholder="login">
+      </mat-form-field>
+      <mat-form-field color="warn">
+          <input matInput placeholder="password">
+      </mat-form-field>
+      <a class="oauth-button-linkedin">
+        <button class="btn btn-success">Se connecter</button>
+      </a>
+      <div class="separator">OU</div>
+      <a class="oauth-button-linkedin">
+        <button  routerLink="/register" class="btn btn-danger">login</button>
+      </a>
+    </form>
+  </mat-card>
+</div>
