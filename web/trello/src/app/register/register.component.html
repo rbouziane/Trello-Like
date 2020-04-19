@@ -12,11 +12,11 @@
           <input matInput placeholder="password">
       </mat-form-field>
       <a class="oauth-button-linkedin">
-        <button class="btn btn-success">Se connecter</button>
+        <button class="btn btn-success" (click)="back()">S'inscrire</button>
       </a>
       <div class="separator">OU</div>
       <a class="oauth-button-linkedin">
-        <button  routerLink="/register" class="btn btn-danger">login</button>
+        <button  routerLink="/register" class="btn btn-danger" (click)="back()">login</button>
       </a>
     </form>
   </mat-card>

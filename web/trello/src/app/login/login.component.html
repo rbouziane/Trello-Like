@@ -9,10 +9,10 @@
           <input type="password" matInput placeholder="Password">
       </mat-form-field>
       <a class="oauth-button-linkedin">
-        <button class="btn btn-success">Se connecter</button>
+        <button class="btn btn-success" (click)="acess()">Se connecter</button>
       </a>
       <a class="oauth-button-linkedin">
-        <button  routerLink="/register" class="btn btn-danger">S'inscrire</button>
+        <button  routerLink="/register" class="btn btn-danger" (click)="create()">S'inscrire</button>
       </a>
     </form>
     <div class="autre">
