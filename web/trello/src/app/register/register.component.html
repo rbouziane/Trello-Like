@@ -1,22 +1,22 @@
 <div class="div-full"  fxLayout="row" fxLayoutAlign="center center">
   <mat-card class="login-card" fxLayout="column" fxLayoutAlign="space-around center">
     <h1 class="titre">S'inscrire à Trello</h1>
-    <form class="div-full" fxLayout="row" fxLayoutAlign="space-around center">
+    <form class="div-full" fxLayout="row" fxLayoutAlign="space-around center" (ngSubmit)="back(f)" #f="ngForm">
       <mat-form-field color="warn">
-          <input matInput placeholder="E-mail">
+          <input matInput placeholder="E-mail" id="email" name="email" ngModel required>
       </mat-form-field>
       <mat-form-field color="warn">
-          <input matInput placeholder="login">
+          <input matInput placeholder="login" id="login" name="login" ngModel required>
       </mat-form-field>
       <mat-form-field color="warn">
-          <input matInput placeholder="password">
+          <input matInput placeholder="password" id="password" name="password" type="password" ngModel required>
       </mat-form-field>
       <a class="oauth-button-linkedin">
-        <button class="btn btn-success" (click)="back()">S'inscrire</button>
+        <button class="btn btn-success" type="submit" [disabled]="f.invalid">S'inscrire</button>
       </a>
       <div class="separator">OU</div>
       <a class="oauth-button-linkedin">
-        <button  routerLink="/register" class="btn btn-danger" (click)="back()">login</button>
+        <button  routerLink="/register" class="btn btn-danger" (click)="return()">login</button>
       </a>
     </form>
   </mat-card>

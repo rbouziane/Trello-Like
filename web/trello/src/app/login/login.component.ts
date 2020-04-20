@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,10 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['register']);
   }
 
-  acess() {
-      this.router.navigate(['board']);
+  acess(form: NgForm) {
+    const name = form.value['name'];
+    const email = form.value['password'];
+    console.log(form.value);
+    //this.router.navigate(['board']);
   }
 }
