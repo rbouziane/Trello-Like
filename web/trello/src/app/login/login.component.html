@@ -4,6 +4,7 @@
     <form class="div-full" fxLayout="row" fxLayoutAlign="space-around center" (ngSubmit)="onSubmit(f)" #f="ngForm">
       <mat-form-field color="warn">
           <input matInput placeholder="E-mail" id="email" name="email" ngModel required>
+          <p class="text-danger">{{ errorMessage }}</p>
       </mat-form-field>
       <mat-form-field color="warn">
           <input type="password" matInput placeholder="Password" id="password" name="password" type="password" ngModel required>
@@ -15,6 +16,5 @@
         <button  routerLink="/register" class="btn btn-danger" (click)="create()">S'inscrire</button>
       </a>
     </form>
-    <p class="text-danger">{{ errorMessage }}</p>
   </mat-card>
 </div>

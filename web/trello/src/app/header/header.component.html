@@ -1,0 +1,20 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li>
+          <img src="assets/images/favicon.ico" width="45" height="50">
+        </li>
+        <li routerLink="active" *ngIf="isAuth">
+          <a routerLink="board">Board</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li routerLink="active">
+          <a routerLink="login" *ngIf="!isAuth">Connexion</a>
+        </li>
+        <li routerLink="active">
+          <a routerLink="login" *ngIf="isAuth" (click)="SignOut()">Déconnexion</a>
+        </li>
+      </ul>
+    </div>
+</nav>
