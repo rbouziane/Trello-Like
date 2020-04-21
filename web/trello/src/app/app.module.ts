@@ -14,7 +14,9 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BoardComponent } from './board/board.component';
-import {RouterModule, Routes} from "@angular/router"
+import { RouterModule, Routes } from "@angular/router"
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -28,7 +30,7 @@ const appRoutes: Routes = [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    BoardComponent
+    BoardComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +44,9 @@ const appRoutes: Routes = [
     MatInputModule,
     MatTabsModule,
     MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

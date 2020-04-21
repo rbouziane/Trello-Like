@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import { NgForm } from "@angular/forms";
+import { NgForm, FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { AuthService } from '../services/auth.service'
 
 @Component({
   selector: 'app-register',
@@ -9,17 +10,35 @@ import { NgForm } from "@angular/forms";
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  registerForm: FormGroup;
+  errorMessage: string;
+
+  constructor(private router: Router,
+              private authService: AuthService,
+              private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.initForm();
   }
 
-  back(form: NgForm) {
-    const name = form.value['name'];
+  initForm() {
+    this.registerForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]]
+    })
+  }
+
+  onSubmit(form: NgForm) {
     const email = form.value['email'];
     const password = form.value['password'];
-    console.log(form.value);
-    //this.router.navigate(['login']);
+    this.authService.createNewUser(email, password).then(
+      () => {
+        this.router.navigate(['login']);
+      },
+      (error) =>{
+       this.errorMessage = error;
+      }
+    )
   }
 
   return() {
