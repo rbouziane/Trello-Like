@@ -1,1 +1,9 @@
-<p>board works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+        <app-card  *ngFor="let project of projects"
+                       [Name]="project.Name"
+                       [contente]="project.contente"></app-card>
+    </div>
+  </div>
+</div>
