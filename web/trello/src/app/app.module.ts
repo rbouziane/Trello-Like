@@ -17,12 +17,15 @@ import { BoardComponent } from './board/board.component';
 import { RouterModule, Routes } from "@angular/router"
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
+import { AuthGuardService } from "./services/auth-guard.service"
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'board', component: BoardComponent},
-  {path: '', component: LoginComponent}
+  {path: 'board', canActivate: [AuthGuardService], component: BoardComponent},
+  // {path: 'board', component: BoardComponent},
+  {path: '', redirectTo: 'board', pathMatch: 'full'},
+  {path: '**', redirectTo: 'board'}
 ];
 
 @NgModule({
