@@ -13,7 +13,7 @@
           <a routerLink="login" *ngIf="!isAuth">Connexion</a>
         </li>
         <li routerLink="active">
-          <a routerLink="login" *ngIf="isAuth" (click)="SignOut()">Déconnexion</a>
+          <a routerLink="login" *ngIf="isAuth" (click)="onSignOut()">Déconnexion</a>
         </li>
       </ul>
     </div>

@@ -7,6 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardComponent implements OnInit {
 
+
+  projects = [
+  {
+    Name: 'project1',
+    contente: 'lololololololo'
+  },
+  {
+    Name: 'project2',
+    contente: 'lololololololo'
+  },
+  {
+    Name: 'project3',
+    contente: 'chatrjddzqdzqdzqdqzdzq'
+  }
+];
+
   constructor() { }
 
   ngOnInit(): void {
