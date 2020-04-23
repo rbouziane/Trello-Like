@@ -8,5 +8,4 @@ export class Project {
     description: string
   }
   constructor(public title: string, public description: string) {}
-
 }

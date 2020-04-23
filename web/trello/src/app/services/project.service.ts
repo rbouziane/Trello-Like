@@ -13,7 +13,7 @@ export class ProjectService {
 
   constructor() {
     this.getProjects()
-    console.log(this.projects);
+    console.log(this.projects);//supp
   }
 
   emitProjects() {
@@ -34,8 +34,36 @@ export class ProjectService {
       });
   }
 
+  getSingleProject(id: number) {
+    var user = firebase.auth().currentUser;
+    return new Promise(
+      (resolve, reject) => {
+        firebase.database().ref(`/projects/${user.uid}/` + id).once('value').then(
+          (data) => {
+            resolve(data.val());
+          }, (error) => {
+            reject(error);
+          }
+        )
+      }
+    )
+  }
+
   createNewProject(newProject: Project) {
     this.projects.push(newProject);
+    this.saveProjects();
+    this.emitProjects();
+  }
+
+  removeProject(project: Project) {
+    const projectIndexToRemove = this.projects.findIndex(
+      (projectEl) => {
+        if (projectEl === project) {
+          return true;
+        }
+      }
+    )
+    this.projects.splice(projectIndexToRemove, 1);
     this.saveProjects();
     this.emitProjects();
   }
