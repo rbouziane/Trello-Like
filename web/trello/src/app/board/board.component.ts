@@ -3,6 +3,7 @@ import { ProjectService } from '../services/project.service'//supp
 import { Project } from '../models/project.models' //supp
 import { Subscription } from 'rxjs' //supp
 import * as firebase from 'firebase'//supp
+import {Router, ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-board',
@@ -10,12 +11,13 @@ import * as firebase from 'firebase'//supp
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent implements OnInit {
-
   projects: Project[]; //supp
   projectsSubscription: Subscription; //supp
 
   constructor(
-              private projectService: ProjectService,//supp
+              private projectService: ProjectService,
+              private router: Router,
+              private route:  ActivatedRoute
               ) {}
 
   ngOnInit(): void {
@@ -41,15 +43,16 @@ export class BoardComponent implements OnInit {
       // this.projectService.createNewProject("une titr", "une desciption") //supp
   }
 
-  get()
-  {
-      // this.projectService.getProjects();//supp
-      // this.projectService.getProjectsUser();
+  add() {
+    this.router.navigate(['new-projet']);
+  }
+  remove (project: Project) {
+    if(confirm("Voulais vous vraiment supprimé le projet ?")) {
+      this.projectService.removeProject(project);
+    }
   }
 
-  card()
-  {
-      // this.projectService.createProjectCard("-M5SPFQvADoOr8LbJTJL", "une titre", "une description");
+  card(index: number) {
+    this.router.navigate(['card', index]);
   }
-
 }

@@ -1,6 +1,16 @@
-<li class="list-group-item">
-  <input class="champ" type="text" [(ngModel)]="Name" />
-  <br>
-  <br>
-  <textarea [(ngModel)]="contente"></textarea>
-</li>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-">
+      <div class="list-group">
+        <div class="liste-groupe-horizontal" *ngFor="let cards of card">
+          <input class="block1" type="text" value="{{cards.title}}">
+          <br>
+          <textarea class="block2"> {{cards.description}} </textarea>
+          <br>
+          <button class="btn btn-success">Enregistré</button>
+          <button class="btn btn-danger" (click)="delet(cards)">supprimé</button>
+        </div>
+    </div>
+    <button class="btn btn-danger" (click)="create()">create</button>
+  </div>
+</div>
