@@ -5,9 +5,9 @@
         <div class="list-group">
           <button [ngStyle]="{ 'background-image': 'url(' + project.photo + ')'}" class="liste-groupe-horizontal" *ngFor="let project of projects;let i = index" (click)="card(i, project.title)">
             <div class="block">
-              <h1 style="color: #0079BF;" class="test">{{project.title | uppercase }}</h1>
-              <p style="color: #0079BF;"> {{project.description}} </p>
-              <button class="btn btn-danger pull-right" (click)="remove(project)">supprimé</button>
+              <h1 style="color: white;" class="test">{{project.title | uppercase }}</h1>
+              <p style="color: white;"> {{project.description}} </p>
+              <button class="btn btn-danger pull-right" (click)="remove(project)">Supprimé</button>
             </div>
           </button>
       </div>

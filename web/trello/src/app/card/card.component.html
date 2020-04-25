@@ -4,18 +4,19 @@
 <br>
 <h1>{{title}}</h1>
 <div class="stack">
-  <div class="list" *ngFor="let cards of card">
+  <div class="list" *ngFor="let cards of card; let i = index">
     <h4 class="list-header"></h4>
     <ul>
       <li class="list-card">
-        <input class="block1" type="text" value="{{cards.title}}">
+        <input class="block1" type="text" value="{{cards.title}}" #titleInput>
       </li>
       <li class="list-card">
-        <input class="block1" type="text" value="{{cards.label}}">
+        <input class="block1" type="text" value="{{cards.label}}" #labelInput>
       </li>
-       <textarea class="block2 list-card"> {{cards.description}} </textarea>
+       <textarea class="block2 list-card" #descriptionInput> {{cards.description}} </textarea>
     </ul>
-    <button class="btn new-card-button" (click)="delet(cards)">supprimer</button>
+    <button class="btn new-card-button" (click)="delet(cards)">Supprimer</button>
+    <button class="btn btn-success" type="submit" (click)="save(i, titleInput.value, labelInput.value, descriptionInput.value)">Enregister</button>
   </div>
-  <button class="btn new-list-button" float="right" (click)="create()">+ ajouter cart</button>
+  <button class="btn new-list-button" float="right" (click)="create()">+ Ajouter cart</button>
 </div>
