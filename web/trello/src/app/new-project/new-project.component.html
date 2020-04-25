@@ -3,17 +3,23 @@
     <h2>Nouveau projet</h2>
     <form (ngSubmit)="sub(f)" #f="ngForm">
       <div class="form-group">
-        <label for="email">Nom</label>
+        <label>Nom</label>
         <input type="text" class="form-control" id="name" name="name" ngModel required>
       </div>
       <div class="form-group">
-        <label for="password">Déscription</label>
+        <label>Description</label>
         <textarea class="form-control" id="description" name="description" ngModel> </textarea>
+      </div>
+      <div class="form-group">
+        <label>Ajouter une photo</label>
+        <input type="file" (change)="detectFiles($event)"
+           class="form-control" accept="image/*">
+        <p class="text-success" *ngIf="fileUploaded">Fichier chargé !</p>
       </div>
       <button class="btn btn-success"
               type="submit"
-              [disabled]="f.invalid">Enregistrer</button>
-      <button class="btn btn-danger" (click)="back()">Anuller</button>
+              [disabled]="f.invalid || fileIsUploading">Enregistrer</button>
+      <button class="btn btn-danger" (click)="back()">Annuler</button>
     </form>
   </div>
 </div>

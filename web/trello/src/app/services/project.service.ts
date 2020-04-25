@@ -13,7 +13,6 @@ export class ProjectService {
 
   constructor() {
     this.getProjects()
-    console.log(this.projects);//supp
   }
 
   emitProjects() {
@@ -56,6 +55,18 @@ export class ProjectService {
   }
 
   removeProject(project: Project) {
+    if (project.photo) {
+      const storageRef = firebase.storage().refFromURL(project.photo)
+      storageRef.delete().then(
+        () => {
+          console.log("Photo supprimée !");
+        }
+      ).catch(
+        (error) => {
+          console.log('Fichier non trouvé : ' + error);
+        }
+      )
+    }
     const projectIndexToRemove = this.projects.findIndex(
       (projectEl) => {
         if (projectEl === project) {
@@ -66,5 +77,28 @@ export class ProjectService {
     this.projects.splice(projectIndexToRemove, 1);
     this.saveProjects();
     this.emitProjects();
+  }
+
+  uploadFile(file: File) {
+    return new Promise(
+      (resolve, reject) => {
+        const almostUniqueFileName = Date.now().toString();
+        const upload = firebase.storage().ref()
+          .child('images/' + almostUniqueFileName + file.name)
+          .put(file);
+        upload.on(firebase.storage.TaskEvent.STATE_CHANGED,
+          () => {
+            console.log('Chargement…');
+          },
+          (error) => {
+            console.log('Erreur de chargement ! : ' + error);
+            reject();
+          },
+          () => {
+            resolve(upload.snapshot.ref.getDownloadURL());
+          }
+        )
+      }
+    )
   }
 }

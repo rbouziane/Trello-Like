@@ -3,6 +3,7 @@ export class Project {
     id: string
     email: string
   }
+  photo: string
   cards: {
     title: string
     description: string

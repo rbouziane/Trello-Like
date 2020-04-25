@@ -27,9 +27,8 @@ const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'new-projet', component: NewProjectComponent},
-  {path: 'card/:id', component: CardComponent},
+  {path: 'card/:id/:title', component: CardComponent},
   {path: 'board', canActivate: [AuthGuardService], component: BoardComponent},
-  // {path: 'board', component: BoardComponent},
   {path: '', redirectTo: 'board', pathMatch: 'full'},
   {path: '**', redirectTo: 'board'}
 ];

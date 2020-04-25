@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectService } from '../services/project.service'//supp
-import { Project } from '../models/project.models' //supp
-import { Subscription } from 'rxjs' //supp
-import * as firebase from 'firebase'//supp
+import { ProjectService } from '../services/project.service'
+import { Project } from '../models/project.models'
+import { Subscription } from 'rxjs'
+import * as firebase from 'firebase'
 import {Router, ActivatedRoute} from "@angular/router";
 
 @Component({
@@ -11,8 +11,8 @@ import {Router, ActivatedRoute} from "@angular/router";
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent implements OnInit {
-  projects: Project[]; //supp
-  projectsSubscription: Subscription; //supp
+  projects: Project[];
+  projectsSubscription: Subscription;
 
   constructor(
               private projectService: ProjectService,
@@ -21,26 +21,25 @@ export class BoardComponent implements OnInit {
               ) {}
 
   ngOnInit(): void {
-    this.projectsSubscription = this.projectService.projectsSubject.subscribe(//supp
-      (projects: Project[]) => {//supp
-        this.projects = projects;//supp
-      }//supp
-    )//supp
-    this.projectService.getProjects();//supp
-    this.projectService.emitProjects();//supp
+    this.projectsSubscription = this.projectService.projectsSubject.subscribe(
+      (projects: Project[]) => {
+        this.projects = projects;
+      }
+    )
+    this.projectService.getProjects();
+    this.projectService.emitProjects();
   }
 
   create()
   {
-      console.log(this.projects);//supp
-      var user = firebase.auth().currentUser;//supp
-      const newProject = new Project("un titre1", "une description1");//supp
-      newProject.author = {//supp
-        id: user.uid,//supp
-        email: user.email//supp
-      }//supp
-      this.projectService.createNewProject(newProject);//supp
-      // this.projectService.createNewProject("une titr", "une desciption") //supp
+      console.log(this.projects);
+      var user = firebase.auth().currentUser;
+      const newProject = new Project("un titre1", "une description1");
+      newProject.author = {
+        id: user.uid,
+        email: user.email
+      }
+      this.projectService.createNewProject(newProject);
   }
 
   add() {
@@ -52,7 +51,7 @@ export class BoardComponent implements OnInit {
     }
   }
 
-  card(index: number) {
-    this.router.navigate(['card', index]);
+  card(index: number, title: string) {
+    this.router.navigate(['card', index, title]);
   }
 }

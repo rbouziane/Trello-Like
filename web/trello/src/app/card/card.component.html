@@ -1,16 +1,21 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-">
-      <div class="list-group">
-        <div class="liste-groupe-horizontal" *ngFor="let cards of card">
-          <input class="block1" type="text" value="{{cards.title}}">
-          <br>
-          <textarea class="block2"> {{cards.description}} </textarea>
-          <br>
-          <button class="btn btn-success">Enregistré</button>
-          <button class="btn btn-danger" (click)="delet(cards)">supprimé</button>
-        </div>
-    </div>
-    <button class="btn btn-danger" (click)="create()">create</button>
+<div class="board-he ader">
+</div>
+<br>
+<br>
+<h1>{{title}}</h1>
+<div class="stack">
+  <div class="list" *ngFor="let cards of card">
+    <h4 class="list-header"></h4>
+    <ul>
+      <li class="list-card">
+        <input class="block1" type="text" value="{{cards.title}}">
+      </li>
+      <li class="list-card">
+        <input class="block1" type="text" value="{{cards.label}}">
+      </li>
+       <textarea class="block2 list-card"> {{cards.description}} </textarea>
+    </ul>
+    <button class="btn new-card-button" (click)="delet(cards)">supprimer</button>
   </div>
+  <button class="btn new-list-button" float="right" (click)="create()">+ ajouter cart</button>
 </div>

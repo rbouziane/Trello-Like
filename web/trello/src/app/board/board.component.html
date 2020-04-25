@@ -3,10 +3,10 @@
     <h1> Mes projets: </h1>
       <div class="col-lg-">
         <div class="list-group">
-          <button class="liste-groupe-horizontal" *ngFor="let project of projects;let i = index" (click)="card(i)">
+          <button [ngStyle]="{ 'background-image': 'url(' + project.photo + ')'}" class="liste-groupe-horizontal" *ngFor="let project of projects;let i = index" (click)="card(i, project.title)">
             <div class="block">
-              <h1 class="test">{{project.title | uppercase }}</h1>
-              <p> {{project.description}} </p>
+              <h1 style="color: #0079BF;" class="test">{{project.title | uppercase }}</h1>
+              <p style="color: #0079BF;"> {{project.description}} </p>
               <button class="btn btn-danger pull-right" (click)="remove(project)">supprimé</button>
             </div>
           </button>
