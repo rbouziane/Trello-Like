@@ -42,6 +42,8 @@ export class CardComponent implements OnInit {
     this.cardService.saveCards();
   }
   delet(card: Card) {
-    this.cardService.removeCard(card)
+    if(confirm("Voulais vous vraiment supprimé la cart ?")) {
+      this.cardService.removeCard(card)
+    }
   }
 }

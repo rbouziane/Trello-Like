@@ -1,3 +1,7 @@
+.titre {
+  color: white;
+}
+
 .list {
   background-color: #E2E4E6;
   width: 272px;
@@ -29,12 +33,18 @@
 
 .new-card-button {
   background-color: #E2E4E6;
-  width: 268px;
   margin: 0 4px;
   height: 100%;
-  color: red; //#8C8C8C;
   font-size: 14px;
+}
+.col1 {
+  color: red;
   text-align: left;
+}
+
+.col2 {
+  color: green;
+  text-align: right;
 }
 
 .list-card {

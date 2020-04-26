@@ -2,7 +2,7 @@
 </div>
 <br>
 <br>
-<h1>{{title}}</h1>
+<h1 class="titre">{{title}}</h1>
 <div class="stack">
   <div class="list" *ngFor="let cards of card; let i = index">
     <h4 class="list-header"></h4>
@@ -15,8 +15,8 @@
       </li>
        <textarea class="block2 list-card" placeholder="Description" #descriptionInput>{{cards.description}}</textarea>
     </ul>
-    <button class="btn new-card-button" (click)="delet(cards)">Supprimer</button>
-    <button class="btn btn-success" type="submit" (click)="save(i, titleInput.value, labelInput.value, descriptionInput.value)">Enregister</button>
+    <button class="btn new-card-button col1" (click)="delet(cards)">Supprimer</button>
+    <button class="btn new-card-button col2" type="submit" (click)="save(i, titleInput.value, labelInput.value, descriptionInput.value)">Enregister</button>
   </div>
   <button class="btn new-list-button" float="right" (click)="create()">+ Ajouter cart</button>
 </div>
