@@ -8,12 +8,12 @@
     <h4 class="list-header"></h4>
     <ul>
       <li class="list-card">
-        <input class="block1" type="text" value="{{cards.title}}" #titleInput>
+        <input class="block1" placeholder="Title" type="text" value="{{cards.title}}" #titleInput>
       </li>
       <li class="list-card">
-        <input class="block1" type="text" value="{{cards.label}}" #labelInput>
+        <input class="block1" placeholder="Label" type="text" value="{{cards.label}}" #labelInput>
       </li>
-       <textarea class="block2 list-card" #descriptionInput> {{cards.description}} </textarea>
+       <textarea class="block2 list-card" placeholder="Description" #descriptionInput>{{cards.description}}</textarea>
     </ul>
     <button class="btn new-card-button" (click)="delet(cards)">Supprimer</button>
     <button class="btn btn-success" type="submit" (click)="save(i, titleInput.value, labelInput.value, descriptionInput.value)">Enregister</button>

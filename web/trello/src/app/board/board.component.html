@@ -1,17 +1,16 @@
-<div class="container">
-  <div class="row">
-    <h1> Mes projets: </h1>
-      <div class="col-lg-">
-        <div class="list-group">
-          <button [ngStyle]="{ 'background-image': 'url(' + project.photo + ')'}" class="liste-groupe-horizontal" *ngFor="let project of projects;let i = index" (click)="card(i, project.title)">
-            <div class="block">
-              <h1 style="color: white;" class="test">{{project.title | uppercase }}</h1>
-              <p style="color: white;"> {{project.description}} </p>
-              <button class="btn btn-danger pull-right" (click)="remove(project)">Supprimé</button>
-            </div>
-          </button>
-      </div>
-      <button class="btn btn-success" (click)="add()">+</button>
-  </div>
+<div>
+  <h1 class="titre">Mes projets:</h1>
+<div class="stack">
+  <div [ngStyle]="{ 'background-image': 'url(' + project.photo + ')'}" class="list" *ngFor="let project of projects;let i = index" (click)="card(i, project.title)">
+    <h4 class="list-header"></h4>
+    <ul>
+     <li class="list-card">
+       <h1 style="color: white;" class="test">{{project.title | uppercase }}</h1>
+       <p style="color: white;"> {{project.description}} </p>
+     </li>
+   </ul>
+   <button class="btn new-card-button" (click)="remove(project)" >Supprimer</button>
+ </div>
+ <button class="btn btn-success" (click)="add()">+</button>
 </div>
 </div>

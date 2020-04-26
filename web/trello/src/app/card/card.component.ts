@@ -31,7 +31,7 @@ export class CardComponent implements OnInit {
     console.log(this.card);
   }
   create() {
-    const newCard = new Card(" ", " ", " ");
+    const newCard = new Card("", "", "");
     this.cardService.createNewCard(newCard);
   }
 
