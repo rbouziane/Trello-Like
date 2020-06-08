@@ -9,7 +9,9 @@ Enregistrement d'un nouveau utilisateur:
 </p>
 
 Connextion de nouvelle utilisateur:
-<image></image>
+<p align="center">
+  <img width="60%" height="60%" src="/img/Trello-Login.png">    
+</p>
 
 Creation d'un nouveau projet:
 
