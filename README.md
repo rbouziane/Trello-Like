@@ -1,2 +1,3 @@
 # Trello-Like
-Create a Trello like project
+
+L'application permet de créer un gestionnaires de projet à la Trello.
