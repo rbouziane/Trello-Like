@@ -2,7 +2,7 @@
 
 Projet développé avec Firebase pour la partie server et en Angular pour la partie client.
 
-L'application permet de créer un gestionnaires de projet à la Trello.
+L'application permet de créer un gestionnaires de projet semblable à Trello.
 
 Enregistrement d'un nouvel utilisateur :
 
