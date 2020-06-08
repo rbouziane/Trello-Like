@@ -3,7 +3,7 @@
 L'application permet de créer un gestionnaires de projet à la Trello.
 
 <p align="center">
-  <img width="60%" height="60%" src="/img/Trello-ListProject.png">    
+  <img width="60%" height="60%" src="/img/Trello-SignIn.png">    
 </p>
 
 <p align="center">
@@ -11,9 +11,9 @@ L'application permet de créer un gestionnaires de projet à la Trello.
 </p>
 
 <p align="center">
-  <img width="60%" height="60%" src="/img/Trello-ProjectInfo.png">    
+  <img width="60%" height="60%" src="/img/Trello-ListProject.png">    
 </p>
 
 <p align="center">
-  <img width="60%" height="60%" src="/img/Trello-SignIn.png">    
+  <img width="60%" height="60%" src="/img/Trello-ProjectInfo.png">    
 </p>
